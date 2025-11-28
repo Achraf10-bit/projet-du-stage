@@ -73,30 +73,13 @@ INSERT INTO clients (name, email, phone, company) VALUES
 ('Société XYZ', 'info@xyz.ma', '0623456789', 'XYZ SARL'),
 ('Cabinet Consulting', 'consulting@cabinet.ma', '0634567890', 'Cabinet Consulting SARL');
 
-INSERT INTO contracts (client_id, contract_number, name, description, contract_type, amount, currency, tax_required, tax_rate, payment_terms, status) VALUES 
-(1, 'CON-2024-001', 'Contrat de vente de matériel informatique', 'Vente de 50 ordinateurs portables à l\'école ABC', 'Vente_Marchandises', 150000.00, 'MAD', 1, 20.00, 'Paiement à 30 jours', 'Active'),
-(1, 'CON-2024-002', 'Contrat de prestation de services', 'Services de maintenance informatique et support technique', 'Prestation_Services', 50000.00, 'MAD', 1, 20.00, 'Paiement mensuel', 'Active'),
-(2, 'CON-2024-003', 'Contrat de partenariat commercial', 'Partenariat pour distribution de produits dans la région de Fès', 'Partenariat_Commercial', 75000.00, 'MAD', 1, 20.00, 'Paiement trimestriel', 'Draft'),
-(3, 'CON-2024-004', 'Contrat de prestation indépendante', 'Services de conseil en gestion d\'entreprise', 'Prestation_Independante', 25000.00, 'MAD', 1, 20.00, 'Paiement à 15 jours', 'Active'),
-(1, 'CON-2024-005', 'Bail commercial', 'Location de bureau au centre-ville de Casablanca', 'Bail_Commercial', 12000.00, 'MAD', 1, 20.00, 'Paiement mensuel', 'Active'),
-(2, 'CON-2024-006', 'Contrat de travail CDI', 'Embauche d\'un commercial', 'Travail_CDI', 8000.00, 'MAD', 1, 20.00, 'Paiement mensuel', 'Active');
 
-INSERT INTO documents (contract_id, type, file_path) VALUES 
-(1, 'Contrat', 'uploads/contrat_vente_marchandises_001.pdf'),
-(1, 'Facture', 'uploads/facture_vente_marchandises_001.pdf'),
-(2, 'Contrat', 'uploads/contrat_prestation_services_002.pdf'),
-(2, 'Facture', 'uploads/facture_prestation_services_002.pdf'),
-(3, 'Contrat', 'uploads/contrat_partenariat_003.pdf'),
-(3, 'Facture', 'uploads/facture_partenariat_003.pdf'),
-(4, 'Contrat', 'uploads/contrat_prestation_independante_004.pdf'),
-(4, 'Facture', 'uploads/facture_prestation_independante_004.pdf'),
-(5, 'Contrat', 'uploads/bail_commercial_005.pdf'),
-(6, 'Contrat', 'uploads/contrat_travail_cdi_006.pdf');
 
 CREATE INDEX idx_contract_number ON contracts(contract_number);
 CREATE INDEX idx_contract_type ON contracts(contract_type);
 CREATE INDEX idx_contract_status ON contracts(status);
 CREATE INDEX idx_client_name ON clients(name);
 CREATE INDEX idx_user_username ON users(username);
+
 
 ALTER TABLE documents MODIFY contract_id INT NULL;
