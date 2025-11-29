@@ -46,7 +46,7 @@ CREATE TABLE contracts (
     renewal_terms VARCHAR(200),
     legal_representative VARCHAR(100),
     registration_number VARCHAR(50),
-    status ENUM('Draft','Active','Completed','Terminated','Expired') DEFAULT 'Draft',
+    status ENUM('Brouillon','Actif','Terminé','Résilié','Expiré') DEFAULT 'Draft',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (client_id) REFERENCES clients(id) ON DELETE CASCADE
 );
@@ -83,3 +83,4 @@ CREATE INDEX idx_user_username ON users(username);
 
 
 ALTER TABLE documents MODIFY contract_id INT NULL;
+
